@@ -1,0 +1,38 @@
+.LeftInfo{
+    
+    width: 350px;
+    height: 100%;
+    padding-top: 1px;
+}
+
+.LeftTop{
+    
+    border-bottom: 1px solid #969696;
+}
+.NamePosition {
+    font-size: 20px;
+    line-height: 5px;
+    font-weight: bold;
+}
+.Departure{
+    color : #868686
+}
+
+.UserImage{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.UserImage img{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.LeftBottom{
+    display: grid;
+    justify-content: center;
+}

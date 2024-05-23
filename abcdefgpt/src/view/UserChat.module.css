@@ -1,0 +1,13 @@
+.container{
+    
+    display: flex;
+    height: 100%;
+}
+.UserChat{
+    background-color:beige;
+    width: 100%;
+}
+.InputBox{
+    position: absolute;
+    bottom: 10px;
+}

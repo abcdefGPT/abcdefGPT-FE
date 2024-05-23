@@ -1,0 +1,37 @@
+.button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  
+  .blue {
+    background-color: #C4EDFF;
+    color: #4966FF;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .icon {
+    margin-right: 40px; /* 아이콘과 텍스트 사이의 간격 */
+  }
+  
+  .icon img {
+    width: 40px;
+    height: 40px;
+  }
+  
