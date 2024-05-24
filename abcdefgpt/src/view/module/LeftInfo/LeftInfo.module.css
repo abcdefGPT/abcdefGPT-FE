@@ -3,10 +3,10 @@
     width: 350px;
     height: 100%;
     padding-top: 1px;
+    border-right: 1px solid #969696;
 }
 
 .LeftTop{
-    
     border-bottom: 1px solid #969696;
 }
 .NamePosition {

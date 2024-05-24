@@ -29,11 +29,7 @@ const LeftInfo = ({ personInfo, location }) => {
                 <p className={cx("Departure")}>{personInfo.departure}</p>
             </div>
             <div className={cx("LeftBottom")}>
-                <Button text = "대시보드" icon={Dashboard} isActive={location==="Dashboard"}></Button>
-                <Button text = "나의 작업" icon={Task}></Button>
-                <Button text = "조직" icon={Organization}></Button>
-                <Button text = "관리중인 목표" icon={Management}></Button>
-                <Button text = "참여중인 목표" icon={Participation}></Button>
+                
                 <Button text = "AI 사수" icon={AIBot} isActive={location==="AIBot"}></Button>
             </div>
         </div>
