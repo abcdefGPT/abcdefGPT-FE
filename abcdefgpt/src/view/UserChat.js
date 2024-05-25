@@ -95,7 +95,7 @@ function UserChat(props) {
 
         setChatData('');
         try {
-            
+
             const response = await axios.get('http://127.0.0.1:5000', { params });
             console.log(response.data)
             setResponseData(prevResponses =>
@@ -126,10 +126,28 @@ function UserChat(props) {
                 <h1>
                     AI 사수
                 </h1>
-                <div>
-
-                </div>
                 <div className={cx("Center")}>
+                    <div>
+                        <div className={cx("Query")}>
+                            <p >Query : jfipjaepofijapofijaoiefjawpoifjjopaifjfeopijafoweijfaopiwefjeafipoaejejapoiefjapoiefjapoiejaejfpaoijepoaijefpoajefpoiaefpefjapoiefjaeif</p>
+                        </div>
+                        <div className={cx("Response")}>
+                            <img alt="test"></img>
+                            <div style={{display: "flex", alignItems: "end", marginBottom:""}}>
+                            <p style={{marginBottom:"0px"}}>Data: akjenalkefjajefopaijefpoiajpeoifjapoeifjap oiefjapoiejpoaijpfeoiajepfoijapweoifjapoiefjapwoiefjawf</p>
+                            <a>#time</a>
+                            </div>
+                            
+                        </div>
+                        <div className={cx("Query")}>
+                            <p >Query : jfipjaepofijapofijaoiefjawpoifjjopaifjfeopijafoweijfaopiwefjeafipoaejejapoiefjapoiefjapoiejaejfpaoijepoaijefpoajefpoiaefpefjapoiefjaeif</p>
+                        </div>
+                        <div className={cx("Response")}>
+                            <img alt="test"></img>
+                            <p >Data: akjenalkefjajefopaijefpoiajpeoifjapoeifjap oiefjapoiejpoaijpfeoiajepfoijapweoifjapoiefjapwoiefjawf</p>
+                        </div>
+                    </div>
+
                     {responseData.length > 0 ? (
                         <div>
                             {responseData.map((response, index) => (

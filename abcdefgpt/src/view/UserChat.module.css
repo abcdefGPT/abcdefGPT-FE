@@ -68,18 +68,26 @@
 }
 
 .Query p{
-    text-align: left;
+    text-align:initial;
     max-width: 700px;
     padding: 20px 20px;
     border-radius: 15px 0px 15px 15px;
     background-color: #CEF6FF;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 
 .Response {
     width: 800px;
-    display: flex;
+    display: grid;
     justify-content: left;
+    align-items:;
+
+}
+
+.Response img{
+    text-align: left;
 }
 
 .Response p{
@@ -88,4 +96,6 @@
     padding: 20px 20px;
     border-radius: 0px 15px 15px 15px;
     background-color: #E0E0E0;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
