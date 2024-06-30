@@ -65,7 +65,7 @@
     </td>
     <td align="center">Frontend
     </td>
-    <td align="center">AI Model
+    <td align="center">Backend
     </td>
     <td align="center">AI Model
     </td>
