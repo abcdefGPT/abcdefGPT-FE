@@ -29,8 +29,7 @@ const LeftInfo = ({ personInfo, location }) => {
                 <p className={cx("Departure")}>{personInfo.departure}</p>
             </div>
             <div className={cx("LeftBottom")}>
-                
-                <Button text = "AI 사수" icon={AIBot} isActive={location==="AIBot"}></Button>
+                <Button text = "AI 어시스턴트" icon={AIBot} isActive={location==="AIBot"}></Button>
             </div>
         </div>
     );
