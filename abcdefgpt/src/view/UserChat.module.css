@@ -14,7 +14,9 @@
     display: grid;
     justify-content: center;
     width: 800px;
+    height: 700px;
     margin-top: 100px;
+    overflow-y: scroll;
 }
 
 .InputBox {
@@ -69,7 +71,7 @@
 
 .Query p{
     text-align:initial;
-    max-width: 700px;
+    max-width: 500px;
     padding: 20px 20px;
     border-radius: 15px 0px 15px 15px;
     background-color: #CEF6FF;
@@ -77,17 +79,25 @@
     word-break: break-all;
 }
 
+.Query a{
+    margin-right: 5px;
+}
+
 
 .Response {
     width: 800px;
     display: grid;
     justify-content: left;
-    align-items:;
-
 }
 
 .Response img{
     text-align: left;
+    width: 30px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    padding : 3px;
+    border-radius: 10px;
+    background-color: #e1e1e1;
 }
 
 .Response p{
@@ -98,4 +108,9 @@
     background-color: #E0E0E0;
     overflow-wrap: break-word;
     word-break: break-all;
+    margin-block-start: 10px
+}
+
+.Response a{
+    margin-left: 5px;
 }

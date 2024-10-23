@@ -6,13 +6,15 @@ import className from "classnames/bind"
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import SendBtn from "../images/chevron-right.png"
+import AIBot from "../images/technical-support.png"
+import Typewriter from "./module/TypeWriter/TypeWriter";
 
 const cx = className.bind(styles)
 
 function UserChat(props) {
     //임시 사용자 정보
     const personData = {
-        "name": "홍길동",
+        "name": "Lisa",
         "departure": "개발1팀",
         "position": "대리"
     }
@@ -83,24 +85,32 @@ function UserChat(props) {
 
 
     const handleSendClick = async () => {
+
+        const s_now = new Date();
+        const s_hour = s_now.getHours();
+        const s_minute = s_now.getMinutes();
         const params = {
             query: chatData
         };
-
-        const newEntry = { query: chatData, data: null, error: null };
+        const newEntry = { query: chatData, data: null, s_hour: s_hour, s_minute: s_minute, r_hour: null, r_minute: null, error: null };
         setResponseData(prevResponses => [
             ...prevResponses,
             newEntry
         ]);
-
         setChatData('');
+        textareaRef.current.style.height = "24px";
+        //textareaRef.current.style.height = (textareaRef.current.scrollHeight) + "px";
+        bottomRef.current.style.height = "46px"
         try {
 
             const response = await axios.get('http://127.0.0.1:5000', { params });
             console.log(response.data)
+            const r_now = new Date();
+            const r_hour = r_now.getHours();
+            const r_minute = r_now.getMinutes();
             setResponseData(prevResponses =>
                 prevResponses.map(item =>
-                    item === newEntry ? { ...item, data: response.data } : item
+                    item === newEntry ? { ...item, data: response.data, r_hour: r_hour, r_minute: r_minute } : item
                 )
             )
         }
@@ -127,36 +137,37 @@ function UserChat(props) {
                     AI 사수
                 </h1>
                 <div className={cx("Center")}>
-                    <div>
-                        <div className={cx("Query")}>
-                            <p >Query : jfipjaepofijapofijaoiefjawpoifjjopaifjfeopijafoweijfaopiwefjeafipoaejejapoiefjapoiefjapoiejaejfpaoijepoaijefpoajefpoiaefpefjapoiefjaeif</p>
-                        </div>
-                        <div className={cx("Response")}>
-                            <img alt="test"></img>
-                            <div style={{display: "flex", alignItems: "end", marginBottom:""}}>
-                            <p style={{marginBottom:"0px"}}>Data: akjenalkefjajefopaijefpoiajpeoifjapoeifjap oiefjapoiejpoaijpfeoiajepfoijapweoifjapoiefjapwoiefjawf</p>
-                            <a>#time</a>
-                            </div>
-                            
-                        </div>
-                        <div className={cx("Query")}>
-                            <p >Query : jfipjaepofijapofijaoiefjawpoifjjopaifjfeopijafoweijfaopiwefjeafipoaejejapoiefjapoiefjapoiejaejfpaoijepoaijefpoajefpoiaefpefjapoiefjaeif</p>
-                        </div>
-                        <div className={cx("Response")}>
-                            <img alt="test"></img>
-                            <p >Data: akjenalkefjajefopaijefpoiajpeoifjapoeifjap oiefjapoiejpoaijpfeoiajepfoijapweoifjapoiefjapwoiefjawf</p>
-                        </div>
-                    </div>
 
                     {responseData.length > 0 ? (
                         <div>
                             {responseData.map((response, index) => (
                                 <div key={index} style={{ marginBottom: '10px' }}>
                                     <div className={cx("Query")}>
-                                        <p >Query : {response.query}</p>
+                                        <div style={{ display: "flex", alignItems: "end", marginBottom: "" }}>
+                                            <a>{response.s_hour}:{response.s_minute < 10 ? `0${response.s_minute}` : response.s_minute}</a>
+                                            <p style={{ marginBottom: "0px" }}>{response.query}</p>
+                                        </div>
+
                                     </div>
                                     <div className={cx("Response")}>
-                                        <p >Data: {response.data ? JSON.stringify(response.data.answer) : 'Fetching...'}</p>
+                                        <img src={AIBot} alt="test"></img>
+                                        <div style={{ display: "flex", alignItems: "end", marginBottom: "" }}>
+
+                                            {response.data ? (
+                                                <p style={{ marginBottom: "0px" }}>
+                                                    <Typewriter
+                                                        text={JSON.stringify(response.data.answer)} delay={20}
+                                                    />
+                                                </p>
+                                            ) : (
+                                                <p>
+                                                    
+                                                </p>
+                                            )}
+
+                                            <a>{response.data ? `${response.r_hour}:${response.r_minute < 10 ? `0${response.r_minute}` : response.r_minute}` : ""}</a>
+                                        </div>
+
                                     </div>
                                     {response.error && <p className={cx("Response")}>Error : {response.error}</p>}
                                 </div>
